@@ -248,9 +248,8 @@ vim.lsp.config("roslyn", {
 #### Mason
 
 ```lua
-local mason_registry = require("mason-registry")
-local rzls_pkg = mason_registry.get_package("rzls")
-local rzls_path = vim.fs.joinpath(rzls_pkg:get_install_path(), "libexec")
+require("mason-registry")
+local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
 
 local cmd = {
     "roslyn",
@@ -328,5 +327,5 @@ require("roslyn").setup({
 ```lua
 vim.pack.add({ "https://github.com/tris203/rzls.nvim.git" })
 
-require("rzls").setup()
+require("rzls").setup({})
 ```

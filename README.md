@@ -113,9 +113,8 @@ local cmd = {
 #### Mason
 
 ```lua
-local mason_registry = require("mason-registry")
-local rzls_pkg = mason_registry.get_package("rzls")
-local rzls_path = vim.fs.joinpath(rzls_pkg:get_install_path(), "libexec")
+require("mason-registry")
+local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
 
 local cmd = {
     "roslyn",
@@ -159,7 +158,7 @@ You can customize `rzls.nvim` by passing a configuration table to its `setup` fu
   If you already manage `on_attach` globally (e.g., via autocommands), you can omit this or provide an empty function.
 
 ```lua
-require("rzls").setup()
+require("rzls").setup({})
 ```
 
 ## Additional Configuration
